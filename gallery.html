@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="css/style2.css">
+  </head>
+  <body>
+    <div class="text">
+      <h1>Our Gallery</h1>
+    </div>
+    <img class="img img1" src="pics/1.jpg" alt="">
+    <img class="img img2" src="pics/2.jpg" alt="">
+    <img class="img img3" src="pics/3.jpg" alt="">
+    <img class="img img4" src="pics/4.jpg" alt="">
+    <img class="img img5" src="pics/5.jpg" alt="">
+    <img class="img img6" src="pics/6.jpg" alt="">
+    <img class="img img7" src="pics/7.jpg" alt="">
+    <img class="img img8" src="pics/8.jpg" alt="">
+    <img class="img img9" src="pics/9.jpg" alt="">
+    <img class="img img10" src="pics/16.jpg" alt="">
+    <img class="img img11" src="pics/17.jpg" alt="">
+    <img class="img img12" src="pics/18.jpg" alt="">
+    <img class="img img13" src="pics/19.jpg" alt="">
+    <img class="img img14" src="pics/20.jpg" alt="">
+    <script>
+      let imgArr = document.querySelectorAll('.img');
+      let prevX = 0;
+      let prevY = 0;
+      let movexAmount = 0;
+      let moveyAmount = 0;
+      
+      document.addEventListener("mousemove",function(e){
+          mousePos(e);
+      })
+      function mousePos(e){
+          movexAmount = e.pageX -  prevX;
+          moveyAmount = e.pageY - prevY;
+          moveImg(movexAmount,moveyAmount);
+      
+          prevX = e.pageX;
+          prevY = e.pageY;
+      }
+      function moveImg(xAmount,yAmount){
+      
+          imgArr.forEach(function(img){
+              let movementStrength = 7 + (Math.random() * 5);
+              img.style.left = (img.offsetLeft) - (xAmount/movementStrength) + "px";
+              img.style.top = (img.offsetTop) - (yAmount/movementStrength) + "px";
+          })
+      }
+    </script>
+  </body>
+</html>

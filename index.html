@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interior Design</title>
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+  <body>
+    <nav class="row">
+      <div class="container">
+          <div id="cursor"></div>
+        <div>
+          <div class="logo">
+          </div>
+          <div class="txt">Tbilisi Design</div>
+        </div>
+        <div class="burger">
+          <h2><a href="gallery.html">DISPLAY</a></h2>
+          <a class="menu" href="#" onclick="openNav()">&#9776;</a>
+        </div>
+        <div id="myNav" class="overlay">
+          <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          <div class="overlay-content">
+            <a href="#">About</a>
+            <a href="#">Services</a>
+            <a href="#">Clients</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <section class="vinatage">
+      <div class="first">
+        <img src="pics/8.jpg" alt="">
+        <div class="text one">
+          <h1>Our Vintage Style</h1>
+        </div>
+      </div>
+      <div class="second">
+        <img src="pics/1.jpg" alt="">
+      </div>
+      <div class="third">
+        <img src="pics/15.jpg" alt="">
+        <div class="text two">
+          <h1>Choose the 70s</h1>
+        </div>
+      </div>
+      <div class="fourth">
+        <img src="pics/9.jpg" alt="">
+      </div>
+    </section>
+
+    <footer>
+        
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/gsap.min.js" integrity="sha512-6zTDRWNxo8vI6JZYDCwhrJpg5icK3P4HNnW3czsO5Scb3lAoPDam+/wF3eog4hxcl0h44d0XlIcFkuoSaWHQ2g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.3/ScrollTrigger.min.js" integrity="sha512-I+JeBiUY5B5/qJ6ey5CNqJ0yhAuNHBBbRjdM3alkabxCLz3++7hbeOScVSjyRouAihQIiint6Z2Or976vU2XuQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+      let tl= gsap.timeline();
+      
+      tl.from('.first img',{scale:0.6,duration:2,opacity:0, ease:Expo.easeOut, delay:0.2})
+         .to('.one', { clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y:0, stagger:0.3, duration:1}, "-=2.8s")
+      //    .to('.one', { clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)', y:-200, duration:0.2, delay:0.5})
+         .from('.second img',{scale:0.9,duration:1,opacity:0, ease:Expo.easeOut,delay:0.1}, "-=1.8s")
+         .from('.third img',{scale:0.9,duration:1,opacity:0, ease:Expo.easeOut, delay:0.1}, "-=1.0s")
+         .to('.two', { clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)', y:0, stagger:0.3, duration:1}, "-=1.6s")
+      //    .to('.two', { clipPath: 'polygon(0 0, 100% 0, 100% 0, 0 0)', y:-200, duration:0.2, delay:0.5})
+         .from('.fourth img', {scale:0.6,duration:2,opacity:0, ease:Expo.easeOut, delay:0.2},  "-=0.8s")
+      
+      function openNav() {
+      document.getElementById("myNav").style.width = "100%";
+      }
+      
+      function closeNav() {
+      document.getElementById("myNav").style.width = "0%";
+      }
+
+      var cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove',function(e){
+          var ten = -20;
+           var x = e.pageX;
+           var y = e.pageY;
+           cursor.style.left = x + ten + "px";
+           cursor.style.top = y +  ten + "px";
+        });
+    </script>
+  </body>
+</html>
